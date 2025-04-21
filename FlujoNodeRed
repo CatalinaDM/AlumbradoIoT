@@ -1,0 +1,458 @@
+[
+    {
+        "id": "2b66d93f8c2f861a",
+        "type": "postgresql",
+        "z": "1be1e332a6283c9c",
+        "name": "INSERT sensors",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES ('1','1','{{{msg.payload}}}');\n",
+        "postgreSQLConfig": "3cd515a78cadaa56",
+        "split": true,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "9c0d64ee73cb3bbe"
+            ]
+        ]
+    },
+    {
+        "id": "9c0d64ee73cb3bbe",
+        "type": "debug",
+        "z": "1be1e332a6283c9c",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "aeb3f98927367378",
+        "type": "mqtt in",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "topic": "sensor/pir",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "2cc87ddf712ed3c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "75c7645a749f4b9d"
+            ]
+        ]
+    },
+    {
+        "id": "75c7645a749f4b9d",
+        "type": "postgresql",
+        "z": "1be1e332a6283c9c",
+        "name": "INSERT sensors",
+        "query": "INSERT INTO sensor_details (sensor_id, user_id, value) VALUES ('3','1','{{{msg.payload}}}');\n",
+        "postgreSQLConfig": "3cd515a78cadaa56",
+        "split": true,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "b375264909b7c6c8"
+            ]
+        ]
+    },
+    {
+        "id": "b375264909b7c6c8",
+        "type": "debug",
+        "z": "1be1e332a6283c9c",
+        "name": "debug 53",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c973c93b1f0ce9e0",
+        "type": "mqtt in",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "topic": "sensor/smallsound",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2cc87ddf712ed3c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "08e301f27aa8692b"
+            ]
+        ]
+    },
+    {
+        "id": "08e301f27aa8692b",
+        "type": "postgresql",
+        "z": "1be1e332a6283c9c",
+        "name": "INSERT sensors",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id,state) VALUES ('2','1','{{{msg.payload}}}');\n",
+        "postgreSQLConfig": "3cd515a78cadaa56",
+        "split": true,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "237684fdf865ac42"
+            ]
+        ]
+    },
+    {
+        "id": "237684fdf865ac42",
+        "type": "debug",
+        "z": "1be1e332a6283c9c",
+        "name": "debug 51",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c2c1876041c05ea0",
+        "type": "mqtt in",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "topic": "sensor/led",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2cc87ddf712ed3c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "335985bd3583084d"
+            ]
+        ]
+    },
+    {
+        "id": "335985bd3583084d",
+        "type": "postgresql",
+        "z": "1be1e332a6283c9c",
+        "name": "INSERT actutors",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id,state) VALUES ('2','1','{{{msg.payload}}}');\n",
+        "postgreSQLConfig": "3cd515a78cadaa56",
+        "split": true,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "cdef52eb196357bf"
+            ]
+        ]
+    },
+    {
+        "id": "cdef52eb196357bf",
+        "type": "debug",
+        "z": "1be1e332a6283c9c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d365d6269c709ef5",
+        "type": "mqtt in",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "topic": "sensor/buzzer",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2cc87ddf712ed3c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "b9fde22975963044"
+            ]
+        ]
+    },
+    {
+        "id": "b9fde22975963044",
+        "type": "postgresql",
+        "z": "1be1e332a6283c9c",
+        "name": "INSERT actutors",
+        "query": "INSERT INTO actuator_details (actuator_id, user_id,state) VALUES ('1','1','{{{msg.payload}}}');\n",
+        "postgreSQLConfig": "3cd515a78cadaa56",
+        "split": true,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "e813f4c40ff61ac8"
+            ]
+        ]
+    },
+    {
+        "id": "e813f4c40ff61ac8",
+        "type": "debug",
+        "z": "1be1e332a6283c9c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f22714199e898d40",
+        "type": "mqtt in",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "topic": "sensor/dht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2cc87ddf712ed3c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "2b66d93f8c2f861a"
+            ]
+        ]
+    },
+    {
+        "id": "abaf6c07338c7852",
+        "type": "ui_switch",
+        "z": "1be1e332a6283c9c",
+        "name": "",
+        "label": "Encender Luces",
+        "tooltip": "sensor/manual",
+        "group": "0b5a16c7688b5ab7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "sensor/manual",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "0",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "1",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "1a9c85d0cf96e4af"
+            ]
+        ]
+    },
+    {
+        "id": "1a9c85d0cf96e4af",
+        "type": "mqtt out",
+        "z": "1be1e332a6283c9c",
+        "name": "sensor/manual",
+        "topic": "sensor/manual",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "104d51bc9d218181",
+        "x": 480,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1f10f2125060b793",
+        "type": "ui_text",
+        "z": "1be1e332a6283c9c",
+        "group": "0b5a16c7688b5ab7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encender Luces",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "Tahoma,Geneva,sans-serif",
+        "fontSize": 16,
+        "color": "#ff0000",
+        "x": 160,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3cd515a78cadaa56",
+        "type": "postgreSQLConfig",
+        "name": "ddi",
+        "host": "localhost",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "lmc",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "cml",
+        "userFieldType": "str",
+        "password": "patito",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "2cc87ddf712ed3c5",
+        "type": "mqtt-broker",
+        "name": "Server",
+        "broker": "192.168.0.27",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b5a16c7688b5ab7",
+        "type": "ui_group",
+        "name": "Luces",
+        "tab": "b2a3b332be4c55cd",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "104d51bc9d218181",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.0.27",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b2a3b332be4c55cd",
+        "type": "ui_tab",
+        "name": "Tab 4",
+        "icon": "dashboard",
+        "order": 4
+    }
+]
