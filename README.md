@@ -126,47 +126,21 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 
 #### Diagrama de Conexión
 
-[🔗Ver diagrama](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/FlujoNodeRed) 
+[🔗Ver diagrama](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/Diagrama%20de%20Conexi%C3%B3n/Captura%20de%20pantalla%202025-04-21%20165735.png) 
+
+
+<img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
+
 ---
 
-## 🏠 Maqueta Física
+## 📸 Instalación Física
 
-La casa fue creada con materiales comunes de maqueta, pero incorpora piezas funcionales impresas en 3D como:
-- El mecanismo del techo móvil.
-- Soportes para sensores y actuadores.
-- Estructuras para ventanas funcionales.
-
-**📸 Imágenes de la maqueta del proyecto**
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;"> <img src="https://github.com/user-attachments/assets/4df8ea1f-31ee-44a6-a3de-5d4c789c40a6" alt="Imagen 1" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/ee243578-3fab-410a-8f33-38600f44963d" alt="Imagen 2" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/42570bd8-5916-4985-ba0b-01f4823fff46" alt="Imagen 3" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/6ab9da89-50d0-4e04-9206-b45e710d8ad3" alt="Imagen 4" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/2e3ea1b0-e88f-4271-b188-73311f99a1ea" alt="Imagen 4" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> </div>
-
----
-## 🏠 Diagramas de las placas
-
-**Placa 1 (MQ-02, BUZZER, DISTANCIA)**
-<br>
-Link: https://wokwi.com/projects/427323546919923713 
-<img src="https://github.com/user-attachments/assets/e294dc95-e62f-449d-bf96-126de5ad4691">
-<br>
-**Placa 2 (SERVO, MOTOR DC)**
-<br>
-Link: https://wokwi.com/projects/427323546919923713
-<img src="https://github.com/user-attachments/assets/65d1d161-48c8-4386-9c08-3418c299231e">
-
-<br>
-
-**Placa 3 (LLUVIA, LDR, RGB, MOTOR-PASOS)**
-
-<br>
-Link: https://app.cirkitdesigner.com/project/b07a5b19-9e06-4433-bb01-3e5187981fbb 
-<img src="https://github.com/user-attachments/assets/cbe0dc9b-e2ec-4521-84fb-8ee250ee25aa">
 ---
 
 ## 🧪 Base de Datos y Almacenamiento
 
-El sistema guarda todos los datos generados por los sensores en una base de datos **PostgreSQL**, permitiendo:
-- Consultas históricas de temperaturas, humo, lluvia, presencia, etc.
-- Análisis estadístico posterior.
-- Exportación de datos para informes o visualización externa.
+<img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
 
 **Funcionamiento envio correo**
 
