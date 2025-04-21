@@ -200,7 +200,24 @@ https://drive.google.com/drive/folders/1GOXApjWNVipbJKVLVaaz4QoqaaGXq0BR?usp=sha
 
 ## Coevaluación
 
-https://docs.google.com/document/d/1jDS9AxsSn1z5lsY4fK3YzhkUiO5Kk1glECyVzDjCRfc/edit?usp=sharing
+# Coevaluación
+
+##Coevaluación de Carmen Catalina Delgado Manzano para Monserrat Guadalupe Castañon Sanchez 
+##Coevaluación de Carmen Catalina Delgado Manzano para Brayan Leonel Hernandez Díaz
+
+
+
+
+
+##Coevaluación de Monserrat Guadalupe Castañon Sanchez para Carmen Catalina Delgado Manzano
+##Coevaluación de Monserrat Guadalupe Castañon Sanchez para Brayan Leonel Hernandez Díaz
+
+
+
+
+##Coevaluación de Brayan Leonel Hernandez Díaz para Carmen Catalina Delgado Manzano
+##Coevaluación de Brayan Leonel Hernandez Díaz para Monserrat Guadalupe Castañon Sanchez
+
 
 ---
 
