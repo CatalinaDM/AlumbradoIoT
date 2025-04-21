@@ -59,22 +59,6 @@ Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reduc
 |Google Apps Script WebApp  | Notificaciones cuando detecta movimiento de las 12:00 am a 6:00 am|
 | Impresión 3D     | Carcasas para tener buen diseño y presentación en el proyecto real  |
 
----
-
-## 🧠 Arquitectura del Sistema
-
-El sistema está distribuido en **3 placas ESP32**, cada una encargada de distintos sensores y actuadores. La comunicación entre ellas se realiza mediante **MQTT**, utilizando Node-RED como broker e interfaz de control centralizada.
-
-```
-        [ESP32-1] ---> Motor Paso, Sensor de Lluvia, LDR
-        [ESP32-2] ---> Detector de Humo, Servo, Buzzer, Motor DC
-        [ESP32-3] ---> Sensor Ultrasónico, Buzzer
-
-                      ↕  MQTT
-                    [Node-RED]
-                        ↕
-                    [PostgreSQL]
-```
 
 ## ⚙️ **Tabla de Actuadores**
 
@@ -96,24 +80,7 @@ El sistema está distribuido en **3 placas ESP32**, cada una encargada de distin
 | **Sensor DHT11**      | Temperatura y Humedad   | Medir condiciones ambientales y mostrarlas en pantalla                  | <img src="https://github.com/user-attachments/assets/da082c7a-60ed-4bc6-a186-5c08440d41c3" width="100"> |
 | **Sensor de Sonido**  | Micrófono Digital       | Detectar ruidos anormales para activar una alarma                       | <img src="https://github.com/user-attachments/assets/032bcb99-a63c-4b03-a4cf-9c36933d081d" width="100"> |
 
-## 🛠️ Funcionalidad del Sistema
-
-### ☔ Protección contra Lluvia
-Cuando el sensor **YL-83** detecta lluvia, se activa el **motor de pasos**, que sube el techo para proteger la ropa tendida.
-
-### ☀️ Control de Iluminación
-El sensor **LDR** mide la luz ambiental. Si hay suficiente luz natural, se apagan las luces **RGB**; si hay poca, se encienden automáticamente.
-
-### 🔥 Detección de Gas
-El sensor **MQ-2** detecta gases peligrosos, lo que activa:
-- El **buzzer** como alarma.
-- El **servo motor** para abrir una ventana.
-- El **motor DC** para encender un ventilador que ventile el área.
-
-### 🚪 Detección de Presencia
-El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta principal. En ese caso, se activa el **buzzer** para notificar presencia.
-
----
+--
 
 #### Codigo Documentado .py
 
@@ -136,6 +103,11 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 <img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
 
 
+#### Carcasas 
+[🔗 Ver Carcasa 1](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/Carcasas/Carcasas.stl) 
+
+[🔗 Ver Carcasa 2](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/Carcasas/Carcasas2.stl) 
+
 ---
 
 ## 📸 Instalación Física
@@ -145,9 +117,9 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 
 ## 🧪 Base de Datos y Almacenamiento
 
-<img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
+<img src="">
 
-**Funcionamiento envio correo**
+# Funcionamiento envio correo
 
 <img src="https://github.com/user-attachments/assets/42c5f0bb-b303-40ee-96e9-dbd8df3c49ac">
 <img src="https://github.com/user-attachments/assets/904ddbe1-0760-47a6-85f1-ff5ff612aec6">
