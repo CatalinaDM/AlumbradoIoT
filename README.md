@@ -117,7 +117,7 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 
 #### Codigo Documentado .py
 
-[🔗 Código de Thonny]() 
+[🔗 Código de Thonny](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/C%C3%B3digoFuente/Placa1) 
 ---
 
 ## 🏠 Maqueta Física
