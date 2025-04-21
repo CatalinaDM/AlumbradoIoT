@@ -1,0 +1,187 @@
+from machine import Pin, PWM, ADC, SPI, I2C
+from time import sleep, localtime, time
+import urequests
+import network
+from umqtt.simple import MQTTClient
+import json
+
+# === Pines esenciales ===
+pir    = Pin(14, Pin.IN)
+rele   = Pin(26, Pin.OUT)
+buzzer = PWM(Pin(27), freq=1000, duty=0)
+ldr    = ADC(Pin(35))
+mic    = ADC(Pin(34))
+
+# === Configuración ADC ===
+ldr.atten(ADC.ATTN_11DB)
+mic.atten(ADC.ATTN_11DB)
+
+# === Conexión WiFi ===
+def connect_wifi():
+    sta_if = network.WLAN(network.STA_IF)
+    sta_if.active(True)
+    sta_if.connect("Ubee9779-2.4G", "A266879779")
+    while not sta_if.isconnected():
+        print(".", end="")
+        sleep(0.5)
+    print("\nWiFi conectado:", sta_if.ifconfig())
+
+connect_wifi()
+
+# === MQTT ===
+MQTT_BROKER     = "192.168.0.27"
+MQTT_CLIENT_ID  = "esp32_multisensor"
+MQTT_TOPIC_PIR    = "sensor/pir"
+MQTT_TOPIC_BUZZER = "sensor/buzzer"
+MQTT_TOPIC_SOUND  = "sensor/smallsound"
+MQTT_TOPIC_MANUAL = "sensor/manual"
+
+client = MQTTClient(MQTT_CLIENT_ID, MQTT_BROKER)
+
+# === Bandera de control manual y temporizador ===
+manual_override = False
+estado_manual = 0
+manual_timer = 0
+DURACION_MANUAL = 10
+
+# === Callback MQTT ===
+def callback_manual(topic, msg):
+    global manual_override, estado_manual, manual_timer
+    mensaje = msg.decode("utf-8").lower()
+    print("Mensaje manual recibido:", mensaje)
+
+    if mensaje == "on" or mensaje == "1":
+        manual_override = True
+        estado_manual = 1
+        rele.value(1)
+        manual_timer = time()
+
+    elif mensaje == "off" or mensaje == "0":
+        manual_override = True
+        estado_manual = 0
+        rele.value(0)
+        manual_timer = time()
+
+    elif mensaje == "auto":
+        manual_override = False
+        print("Modo automático activado")
+
+client.set_callback(callback_manual)
+client.connect()
+client.subscribe(MQTT_TOPIC_MANUAL)
+
+# === WebApp para correos ===
+WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxsI-QwzFE_O89tivCAYKqL-AQ_6xdsx-Fl1HtOANNXhoMDRjteWjtD2-X2Vca0geDH/exec"
+
+# === Horario permitido para buzzer ===
+UMBRAL_PIR_HORARIO = (0, 6)
+
+# === Umbrales ===
+UMBRAL_LUZ = 2000
+UMBRAL_MIC = 1800
+
+# === Notas buzzer ===
+notas = {
+    'C4': 262, 'D4': 294, 'E4': 330,
+    'F4': 349, 'G4': 392, 'A4': 440,
+    'B4': 494, 'C5': 523
+}
+melodia = [
+    ('C4', 0.2), ('C5', 0.2),
+    ('C4', 0.2), ('C5', 0.2),
+    ('G4', 0.3), ('F4', 0.3)
+]
+
+def leer_sonido(promedios=20):
+    total = 0
+    for _ in range(promedios):
+        total += mic.read()
+        sleep(0.005)
+    return total // promedios
+
+def enviar_alerta(mensaje):
+    try:
+        payload = {"alerta": mensaje}
+        res = urequests.post(WEBAPP_URL,
+                             headers={"Content-Type": "application/json"},
+                             data=json.dumps(payload).encode('utf-8'))
+        print("Respuesta WebApp:", res.text)
+        res.close()
+    except Exception as e:
+        print("Error al enviar alerta:", e)
+
+def reproducir_alarma_y_enviar(mensaje):
+    print("¡Alarma activada!")
+    client.publish(MQTT_TOPIC_BUZZER, "Alarma activada")
+
+    for i, (nota, dur) in enumerate(melodia):
+        if i == 0:
+            enviar_alerta(mensaje)
+        buzzer.freq(notas[nota])
+        buzzer.duty(512)
+        sleep(dur)
+        buzzer.duty(0)
+        sleep(0.05)
+
+    client.publish(MQTT_TOPIC_BUZZER, "Alarma apagada")
+    buzzer.duty(0)
+
+# === Bucle principal ===
+estado_pir_anterior = -1
+mensaje_baja_luz_mostrado = False
+
+while True:
+    try:
+        client.check_msg()
+
+        hora_actual = localtime()[3]
+        movimiento  = pir.value()
+        valor_luz   = ldr.read()
+        valor_mic   = leer_sonido()
+
+        print("Luz:", valor_luz, "| Mic:", valor_mic, "| PIR:", movimiento)
+
+        if manual_override and (time() - manual_timer > DURACION_MANUAL):
+            manual_override = False
+            print("Modo automático reactivado automáticamente.")
+
+        if movimiento != estado_pir_anterior:
+            estado_pir_anterior = movimiento
+            if movimiento:
+                print("Movimiento detectado")
+                client.publish(MQTT_TOPIC_PIR, "Movimiento detectado")
+                if not manual_override:
+                    rele.value(0)
+                if UMBRAL_PIR_HORARIO[0] <= hora_actual <= UMBRAL_PIR_HORARIO[1]:
+                    reproducir_alarma_y_enviar("¡Movimiento detectado durante la madrugada!")
+                else:
+                    enviar_alerta("Movimiento detectado en horario normal.")
+            else:
+                print("Sin movimiento")
+                client.publish(MQTT_TOPIC_PIR, "Sin movimiento")
+                if not manual_override:
+                    rele.value(1)
+
+        if valor_mic > UMBRAL_MIC:
+            print("Sonido fuerte detectado")
+            client.publish(MQTT_TOPIC_SOUND, "Sonido fuerte detectado")
+
+        if manual_override:
+            rele.value(estado_manual)
+        else:
+            if valor_luz > UMBRAL_LUZ:
+                rele.value(0)
+                mensaje_baja_luz_mostrado = False
+            elif valor_mic > UMBRAL_MIC or movimiento:
+                rele.value(1)
+
+        # === Mostrar mensaje si hay poca luz ===
+        if valor_luz < UMBRAL_LUZ and not mensaje_baja_luz_mostrado:
+            enviar_alerta("Se detectó baja iluminación en el área")
+            mensaje_baja_luz_mostrado = True
+
+    except Exception as e:
+        print("Error:", e)
+
+    sleep(1)
+
