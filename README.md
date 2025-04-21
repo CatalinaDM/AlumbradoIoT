@@ -99,6 +99,8 @@ Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reduc
 
 [🔗Ver diagrama](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/Diagrama%20de%20Conexi%C3%B3n/Captura%20de%20pantalla%202025-04-21%20165735.png) 
 
+[🔗Ver diagrama](https://github.com/user-attachments/assets/7efebf7d-1d9d-4bff-bc62-1809e0dda987) 
+
 
 <img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
 
