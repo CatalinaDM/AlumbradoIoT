@@ -123,6 +123,10 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 #### Flujo NodeRed
 [🔗 Flujo Json](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/FlujoNodeRed) 
 
+#### Imagen de Nodos
+
+[🔗Ver diagrama](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/Nodos%20y%20Dashboard/Nodos_conexion.png) 
+
 
 #### Diagrama de Conexión
 
@@ -130,6 +134,7 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 
 
 <img src="https://github.com/user-attachments/assets/763471df-941a-4e41-8ddb-50eb19de184d">
+
 
 ---
 
