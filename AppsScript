@@ -1,0 +1,37 @@
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+  
+  const fecha = new Date();
+  const alerta = data.alerta || "Sin mensaje de alerta";
+  
+  sheet.appendRow([fecha, alerta]);
+  
+if (alerta.includes("Movimiento detectado durante la madrugada")){
+    enviarMensaje(alerta);
+  }
+  
+  return ContentService.createTextOutput("Correo enviado");
+}
+
+function enviarMensaje(alerta) {
+  const email = "catimanzano1@gmail.com";
+  const asunto = "🚨 Alerta: Movimiento anormal detectado";
+  const fecha = new Date();
+
+  const mensajeHTML = `
+    <div style="font-family: Arial, sans-serif; border: 1px solid #e74c3c; border-radius: 10px; padding: 20px; background-color: #fff3f3; color: #333;">
+      <h2 style="color: #e74c3c;">🚨 ¡Movimiento detectado!</h2>
+      <p><strong>Mensaje:</strong> ${alerta}</p>
+      <p><strong>Fecha:</strong> ${fecha.toLocaleString()}</p>
+      <hr style="border: none; border-top: 1px solid #e0e0e0;" />
+      <p style="font-size: 0.9em; color: #999;">Este mensaje fue generado automáticamente por tu sistema de seguridad.</p>
+    </div>
+  `;
+
+  MailApp.sendEmail({
+    to: email,
+    subject: asunto,
+    htmlBody: mensajeHTML
+  });
+}
