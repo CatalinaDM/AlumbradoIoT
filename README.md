@@ -1,1 +1,222 @@
-# AlumbradoIoT
+# 🏠Sistema de iluminació publica
+
+## Descripción General
+
+Descripción del Proyecto: Sistema de iluminació publica
+Es un sistema domótico inteligente implementado con ESP32, diseñado específicamente para un cuarto destinado para masajes dentro de una vivienda. Este sistema ofrece control y automatización de iluminación, monitoreo ambiental y seguridad, con el objetivo de proporcionar una experiencia cómoda, segura y eficiente tanto para la terapeuta como para sus clientes.
+
+# Aplicación Real
+Este proyecto está destinado a una emprendedora que ofrece servicios de masajes en un cuarto adaptado dentro de su hogar. El sistema ayuda a crear un ambiente óptimo de  trabajo, al mismo tiempo que protege el entorno y optimiza el consumo eléctrico.
+
+# Componentes y Funcionalidades
+🔌 Automatización de Luz
+El sistema enciende o apaga la luz automáticamente basado en la detección de movimiento (PIR), nivel de luz ambiente (LDR) y sonido ambiental (micrófono).
+
+Se puede controlar manualmente a través de comandos enviados por MQTT (on, off, auto), permitiendo flexibilidad al momento de recibir clientes o ajustar condiciones según necesidad.
+
+🔔 Alarma de Seguridad
+Si se detecta movimiento en horas no laborales (por ejemplo, de madrugada), se activa una alarma sonora mediante un buzzer, y se envía una alerta vía internet a través de un WebApp (Google Apps Script).
+
+También responde a ruidos inusuales, alertando al sistema cuando se detectan sonidos fuertes.
+
+🌐 Conectividad y Control Remoto
+El sistema se conecta automáticamente al WiFi al encenderse.
+
+Utiliza MQTT para recibir comandos y publicar estados a un broker local (por ejemplo, en una Raspberry Pi con Node-RED).
+
+Las alertas importantes se notifican automáticamente a través de una WebApp, permitiendo monitoreo externo desde cualquier lugar.
+
+🕹️ Modo Manual
+Se puede forzar el encendido o apagado de la luz por un tiempo limitado (10 segundos) mediante comandos MQTT, muy útil cuando la terapeuta desea controlar el entorno sin depender de sensores.
+
+🧠 Lógica Adaptativa
+Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reducir el consumo eléctrico.
+---
+
+## 🎯 Objetivos del Proyecto
+
+✅ Ambiente óptimo para ofrecer servicios profesionales.
+
+✅ Ahorro energético con encendido automático de luz solo cuando se necesita.
+
+✅ Seguridad mejorada mediante alarmas y notificaciones remotas.
+
+✅ Control remoto desde el celular o computadora.
+
+✅ Automatización no invasiva, que trabaja en segundo plano sin requerir interacción constante.
+
+
+
+## ⚙️ Tecnologías Utilizadas
+
+| Tecnología       | Uso Principal                                   |
+|------------------|--------------------------------------------------|
+| ESP32            | Microcontroladores para manejar sensores/actuadores |
+| Node-RED         | Plataforma de control e interfaz web             |
+| Raspberry Pi     | Máquina virtual que aloja Node-RED y PostgreSQL  |
+| PostgreSQL       | Base de datos relacional para almacenamiento de datos |
+| MQTT             | Protocolo de mensajería entre nodos ESP32 y Node-RED |
+|Google Apps Script WebApp  | Notificaciones cuando detecta movimiento de las 12:00 am a 6:00 am|
+| Impresión 3D     | Carcasas para tener buen diseño y presentación en el proyecto real  |
+
+---
+
+## 🧠 Arquitectura del Sistema
+
+El sistema está distribuido en **3 placas ESP32**, cada una encargada de distintos sensores y actuadores. La comunicación entre ellas se realiza mediante **MQTT**, utilizando Node-RED como broker e interfaz de control centralizada.
+
+```
+        [ESP32-1] ---> Motor Paso, Sensor de Lluvia, LDR
+        [ESP32-2] ---> Detector de Humo, Servo, Buzzer, Motor DC
+        [ESP32-3] ---> Sensor Ultrasónico, Buzzer
+
+                      ↕  MQTT
+                    [Node-RED]
+                        ↕
+                    [PostgreSQL]
+```
+
+## ⚙️ **Tabla de Actuadores**
+
+| **Nombre**           | **Tipo**                 | **Uso**                                                                | **Imagen** |
+|----------------------|--------------------------|------------------------------------------------------------------------|------------|
+| **Relevador**        | Actuador Electromecánico | Encender o apagar dispositivos de alto voltaje como lámparas           | <img src="https://github.com/user-attachments/assets/b3fb3f49-902e-4f02-838e-16978927f0e4" width="100"> |
+| **Lámparas LED**     | Iluminación              | Iluminar el cuarto según el nivel de luz o manualmente                 | <img src="https://github.com/user-attachments/assets/e47e4534-3f42-4888-97f2-d46cc8ad64ef" width="100"> |
+| **Alarma (Buzzer)**  | Actuador Sonoro          | Emitir alarma sonora si se detecta movimiento o sonido sospechoso      | <img src="https://github.com/user-attachments/assets/dfef9d15-3674-43f1-a72b-3b714f6f3f0e" width="100"> |
+| **Pantalla LCD/OLED**| Visualización            | Mostrar datos como temperatura, estado de sensores, o alertas          | <img src="https://github.com/user-attachments/assets/9864e7f9-5cd3-45fc-9523-533060cc801c" width="100"> |
+
+---
+
+## 🧪 **Tabla de Sensores**
+
+| **Nombre**            | **Tipo**                | **Uso**                                                                 | **Imagen** |
+|-----------------------|-------------------------|--------------------------------------------------------------------------|------------|
+| **Sensor de Luz LDR** | Fotoresistencia         | Detectar nivel de luz para activar o apagar lámparas LED                | <img src="https://github.com/user-attachments/assets/b8101240-da5d-4628-b200-595423f2ff32" width="100"> |
+| **Sensor PIR**        | Infrarrojo Pasivo       | Detectar movimiento en el cuarto para activar alarma o luz              | <img src="https://github.com/user-attachments/assets/3632bf44-3ee8-4b7f-8dfa-3cb10115dfac" width="100"> |
+| **Sensor DHT11**      | Temperatura y Humedad   | Medir condiciones ambientales y mostrarlas en pantalla                  | <img src="https://github.com/user-attachments/assets/da082c7a-60ed-4bc6-a186-5c08440d41c3" width="100"> |
+| **Sensor de Sonido**  | Micrófono Digital       | Detectar ruidos anormales para activar una alarma                       | <img src="https://github.com/user-attachments/assets/032bcb99-a63c-4b03-a4cf-9c36933d081d" width="100"> |
+
+## 🛠️ Funcionalidad del Sistema
+
+### ☔ Protección contra Lluvia
+Cuando el sensor **YL-83** detecta lluvia, se activa el **motor de pasos**, que sube el techo para proteger la ropa tendida.
+
+### ☀️ Control de Iluminación
+El sensor **LDR** mide la luz ambiental. Si hay suficiente luz natural, se apagan las luces **RGB**; si hay poca, se encienden automáticamente.
+
+### 🔥 Detección de Gas
+El sensor **MQ-2** detecta gases peligrosos, lo que activa:
+- El **buzzer** como alarma.
+- El **servo motor** para abrir una ventana.
+- El **motor DC** para encender un ventilador que ventile el área.
+
+### 🚪 Detección de Presencia
+El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta principal. En ese caso, se activa el **buzzer** para notificar presencia.
+
+---
+
+## 💻 Interfaz Gráfica
+
+La interfaz fue desarrollada en **Node-RED** y permite:
+- Controlar manualmente el techo, ventilador y ventana.
+- Visualizar gráficas en tiempo real de los sensores.
+- Encender/apagar los actuadores desde cualquier navegador.
+- Visualizar graficas y metricas sobre el estado de las ultimas 10 detecciones por parte del MQ-02
+- Visualizar graficas y metricas sobre la duracion (Horas) de las lluvia en las ultimas 10 detecciones de lluvia
+
+**Ejemplo de interfaz:**
+<img src="https://github.com/user-attachments/assets/91fc5a65-bb0f-47d3-a1e2-feef6ea24597">
+
+---
+
+## 🏠 Maqueta Física
+
+La casa fue creada con materiales comunes de maqueta, pero incorpora piezas funcionales impresas en 3D como:
+- El mecanismo del techo móvil.
+- Soportes para sensores y actuadores.
+- Estructuras para ventanas funcionales.
+
+**📸 Imágenes de la maqueta del proyecto**
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;"> <img src="https://github.com/user-attachments/assets/4df8ea1f-31ee-44a6-a3de-5d4c789c40a6" alt="Imagen 1" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/ee243578-3fab-410a-8f33-38600f44963d" alt="Imagen 2" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/42570bd8-5916-4985-ba0b-01f4823fff46" alt="Imagen 3" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/6ab9da89-50d0-4e04-9206-b45e710d8ad3" alt="Imagen 4" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> <img src="https://github.com/user-attachments/assets/2e3ea1b0-e88f-4271-b188-73311f99a1ea" alt="Imagen 4" style="width: 300px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"> </div>
+
+---
+## 🏠 Diagramas de las placas
+
+**Placa 1 (MQ-02, BUZZER, DISTANCIA)**
+<br>
+Link: https://wokwi.com/projects/427323546919923713 
+<img src="https://github.com/user-attachments/assets/e294dc95-e62f-449d-bf96-126de5ad4691">
+<br>
+**Placa 2 (SERVO, MOTOR DC)**
+<br>
+Link: https://wokwi.com/projects/427323546919923713
+<img src="https://github.com/user-attachments/assets/65d1d161-48c8-4386-9c08-3418c299231e">
+
+<br>
+
+**Placa 3 (LLUVIA, LDR, RGB, MOTOR-PASOS)**
+
+<br>
+Link: https://app.cirkitdesigner.com/project/b07a5b19-9e06-4433-bb01-3e5187981fbb 
+<img src="https://github.com/user-attachments/assets/cbe0dc9b-e2ec-4521-84fb-8ee250ee25aa">
+---
+
+## 🧪 Base de Datos y Almacenamiento
+
+El sistema guarda todos los datos generados por los sensores en una base de datos **PostgreSQL**, permitiendo:
+- Consultas históricas de temperaturas, humo, lluvia, presencia, etc.
+- Análisis estadístico posterior.
+- Exportación de datos para informes o visualización externa.
+
+**Funcionamiento envio correo**
+
+<img src="https://github.com/user-attachments/assets/42c5f0bb-b303-40ee-96e9-dbd8df3c49ac">
+<img src="https://github.com/user-attachments/assets/67b6bea0-4a98-47fc-81e7-6182e8ca6701">
+<img src="https://github.com/user-attachments/assets/e322e36b-60ad-4913-acd1-165c06c7bfa4">
+
+
+
+---
+
+
+## Videos explicando el funcionamiento de cada placa
+
+Link a videos
+
+https://drive.google.com/drive/folders/1Mwg-OasbqF_vHa8ZhzucIkqC5u0zefmu?usp=drive_link
+
+## Videos explicando el funcionamiento general de toda la casa
+
+Link a videos
+
+https://drive.google.com/drive/folders/12ORMXZAib9PHsuYNOvswGEr8jB9Gjxr0?usp=sharing
+
+## Evidencia (Videos) de los clientes que aprueban el proyecto
+
+Link a videos
+
+https://drive.google.com/drive/folders/1yig3J2GGEPOLDp7m1ZyxWFej3fN-4ZA3?usp=sharing
+
+---
+
+## Ejecicios de Clase
+
+Link a videos
+
+https://drive.google.com/drive/folders/1GOXApjWNVipbJKVLVaaz4QoqaaGXq0BR?usp=sharing
+
+## Coevaluación
+
+https://docs.google.com/document/d/1jDS9AxsSn1z5lsY4fK3YzhkUiO5Kk1glECyVzDjCRfc/edit?usp=sharing
+
+---
+
+## ✍️ Autores
+
+- **Nombre del equipo**: SmartHome GDS0651
+- **Integrantes**:
+  - Mendoza Amaro Brandon Gustavo - brandon-p3
+  - Morales Lezama Mirza Natzielly  - Mirza Morales
+  - Ramirez Ramirez Lizett 
+
+---
