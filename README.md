@@ -115,18 +115,9 @@ El **sensor ultrasónico HC-SR04** detecta si alguien se encuentra en la puerta 
 
 ---
 
-## 💻 Interfaz Gráfica
+#### Codigo Documentado .py
 
-La interfaz fue desarrollada en **Node-RED** y permite:
-- Controlar manualmente el techo, ventilador y ventana.
-- Visualizar gráficas en tiempo real de los sensores.
-- Encender/apagar los actuadores desde cualquier navegador.
-- Visualizar graficas y metricas sobre el estado de las ultimas 10 detecciones por parte del MQ-02
-- Visualizar graficas y metricas sobre la duracion (Horas) de las lluvia en las ultimas 10 detecciones de lluvia
-
-**Ejemplo de interfaz:**
-<img src="https://github.com/user-attachments/assets/91fc5a65-bb0f-47d3-a1e2-feef6ea24597">
-
+[🔗 Código de Thonny]() 
 ---
 
 ## 🏠 Maqueta Física
@@ -171,13 +162,15 @@ El sistema guarda todos los datos generados por los sensores en una base de dato
 **Funcionamiento envio correo**
 
 <img src="https://github.com/user-attachments/assets/42c5f0bb-b303-40ee-96e9-dbd8df3c49ac">
-<img src="https://github.com/user-attachments/assets/67b6bea0-4a98-47fc-81e7-6182e8ca6701">
-<img src="https://github.com/user-attachments/assets/e322e36b-60ad-4913-acd1-165c06c7bfa4">
+<img src="https://github.com/user-attachments/assets/904ddbe1-0760-47a6-85f1-ff5ff612aec6">
+<img src="https://github.com/user-attachments/assets/a857820a-7eed-47bc-85f1-e4d7069c62b7">
 
+#### Código de AppsScript
+
+[🔗 Ver Code ](https://github.com/CatalinaDM/AlumbradoIoT/blob/main/AppsScript)
 
 
 ---
-
 
 ## Videos explicando el funcionamiento de cada placa
 
