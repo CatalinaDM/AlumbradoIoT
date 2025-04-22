@@ -136,17 +136,16 @@ Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reduc
 
 ## Videos explicando el funcionamiento
 
-Link a videos
 
-https://drive.google.com/drive/folders/1Mwg-OasbqF_vHa8ZhzucIkqC5u0zefmu?usp=drive_link
+[🔗 Ver video ](https://drive.google.com/file/d/1p3uILw5T7sTr1pT9M0vrEURw72yX7NPy/view?usp=drive_link)
 
 ---
 
 ## Ejecicios de Clase
 
 Link a videos
+[🔗 Ver video ](https://drive.google.com/drive/u/2/folders/1FdQDaAN-clIueNZEJagn0WYT43Cx2bHN)
 
-https://drive.google.com/drive/u/2/folders/1FdQDaAN-clIueNZEJagn0WYT43Cx2bHN
 
 ## Coevaluación
 
@@ -176,6 +175,13 @@ Cati puede mejorar ser un poco mas tolerante y no ser tan exigente
 
 ## Coevaluación de Brayan Leonel Hernandez Díaz para Monserrat Guadalupe Castañon Sanchez
 Monse puede ser mas expresiva y opinar un poco mas y ser mas objetiva.
+
+
+
+# AutoEvaluación
+
+## Carmen Catalina Delgado Manzano 
+
 
 ---
 
