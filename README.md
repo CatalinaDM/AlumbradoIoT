@@ -1,4 +1,4 @@
-# 🏠Sistema de iluminació publica
+# 🏠Sistema de iluminación pública
 
 ## Descripción General
 
@@ -161,9 +161,13 @@ Link a videos
 
 
 ## Coevaluación de Monserrat Guadalupe Castañon Sanchez para Carmen Catalina Delgado Manzano
+Qué hizo bien) Ella siempre estuvo al pendiente de todo lo que faltaba y fue muy atenta al momento de trabajar en equipo, estuvo muy dispuesta a terminar el trabajo y colaboró con nosotros en todo momento :3 (Qué hizo mal) Tal vez la puntualidad pero no era mucho, solo una que otra vez sí es la puntualidad :"v (Qué puede mejorar) Y puede mejorar en la comunicación firme de sus ideas porque siento que las decía pero con poca confianza o como no tan viable a menos de que se aprobara por los integrantes, pero sus ideas siempre son buenas y le falta firmeza al momento de decirlas uwu
+
+
 
 ## Coevaluación de Monserrat Guadalupe Castañon Sanchez para Brayan Leonel Hernandez Díaz
 
+(Qué hizo bien) El estuvo dispuesto a prestar su casa para realizar el trabajo y estuvo a disposición de trabajar en equipo y se adaptó a realizar el proyecto a pesar de tener todo en contra :3. (Qué hizo mal) Tal vez porque sea su casa y estuvo muy cómodo pero a veces se relajaba demás o no realizaba lo principal que era el trabajo :"v. (Qué puede mejorar) Y puede mejorar en avisando qué actividades está realizando para que ninguno de los demás integrantes lo realice y sea tiempo perdido :c
 
 
 ## Coevaluación completa de Brayan Leonel Hernandez Díaz:
@@ -191,7 +195,7 @@ Qué puedo mojorar: Ser más paciente y cuando algo se me dificulta tratar de ha
 
 
 ## Monserrat Guadalupe Castañon Sanchez
-
+(Qué hizo bien) Estuve al pendiente de lo que faltaba aunque a veces se me pasaba y aporté ideas (algunas no se tomaron en cuenta y ya me dio penita :"c) pero estuve tratando de que el proyecto se viera bonito y funcional :3. (Qué hizo mal) Creo que soy muy distraída y que no me concentro al cien porciento en una actividad ya que cuando no me sale  la primera me bloqueo y la hago sin prestar mucha atención :"c. (Qué puede mejorar) Ser más observadora al momento de realizar tareas y estar más al pendiente de todas las actividades que falten preguntando qué tareas son las que falta por realizar y en caso de no poder realizarlas pedir ayuda a mis compañeros que están dispuestos a ayudarme en todo :3
 ## Brayan Leonel Hernandéz Díaz
 
 
