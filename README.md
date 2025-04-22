@@ -166,10 +166,16 @@ Leo es un compañero muy adaptable, auqnue no sepa hacer ciertas cosas se esfuer
 
 
 
+## Coevaluación completa de Brayan Leonel Hernandez Díaz:
+En general, nos llevamos bien como equipo. Nos supimos organizar y cada uno hizo su parte. Cati fue muy responsable con su parte, apoyando todo a tiempo y le gustaba que todo quedara bien hecho. Monse también aportó muchas ideas buenas, sobre todo en cómo dar poco de diseño al proyecto y mejorar algunos detalles. Yo (Leonel) traté de apoyar en lo que podía en algunas tareas, estar al tanto de que todo avanzara, y también apoyé en lo técnico cuando se complicaban algunas cosas.
+A veces nos faltó un poco más de comunicación al repartir tareas. Hubo momentos en los que no sabíamos bien quién estaba haciendo qué, y eso nos hizo perder algo de tiempo. También dejamos algunas cosas para el final, y eso nos metió presión innecesaria.
+Por otro lado Yo (Leonel) podría respetar mas las ideas y escuchas activamente para no afectar a mis compañeros 
 
-##Coevaluación de Brayan Leonel Hernandez Díaz para Carmen Catalina Delgado Manzano
-##Coevaluación de Brayan Leonel Hernandez Díaz para Monserrat Guadalupe Castañon Sanchez
+## Coevaluación de Brayan Leonel Hernandez Díaz para Carmen Catalina Delgado Manzano
+Cati puede mejorar ser un poco mas tolerante y no ser tan exigente
 
+## Coevaluación de Brayan Leonel Hernandez Díaz para Monserrat Guadalupe Castañon Sanchez
+Monse puede ser mas expresiva y opinar un poco mas y ser mas objetiva.
 
 ---
 
