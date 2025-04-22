@@ -134,17 +134,11 @@ Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reduc
 
 ---
 
-## Videos explicando el funcionamient
+## Videos explicando el funcionamiento
 
 Link a videos
 
 https://drive.google.com/drive/folders/1Mwg-OasbqF_vHa8ZhzucIkqC5u0zefmu?usp=drive_link
-
-## Evidencia (Videos) de los clientes que aprueban el proyecto
-
-Link a videos
-
-https://drive.google.com/drive/folders/1yig3J2GGEPOLDp7m1ZyxWFej3fN-4ZA3?usp=sharing
 
 ---
 
