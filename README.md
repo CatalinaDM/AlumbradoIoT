@@ -134,17 +134,11 @@ Durante el día, la luz se apaga si hay suficiente luz natural, ayudando a reduc
 
 ---
 
-## Videos explicando el funcionamiento de cada placa
+## Videos explicando el funcionamient
 
 Link a videos
 
 https://drive.google.com/drive/folders/1Mwg-OasbqF_vHa8ZhzucIkqC5u0zefmu?usp=drive_link
-
-## Videos explicando el funcionamiento general de toda la casa
-
-Link a videos
-
-https://drive.google.com/drive/folders/12ORMXZAib9PHsuYNOvswGEr8jB9Gjxr0?usp=sharing
 
 ## Evidencia (Videos) de los clientes que aprueban el proyecto
 
@@ -158,7 +152,7 @@ https://drive.google.com/drive/folders/1yig3J2GGEPOLDp7m1ZyxWFej3fN-4ZA3?usp=sha
 
 Link a videos
 
-https://drive.google.com/drive/folders/1GOXApjWNVipbJKVLVaaz4QoqaaGXq0BR?usp=sharing
+https://drive.google.com/drive/u/2/folders/1FdQDaAN-clIueNZEJagn0WYT43Cx2bHN
 
 ## Coevaluación
 
