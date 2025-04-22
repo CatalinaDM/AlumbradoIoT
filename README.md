@@ -152,17 +152,17 @@ https://drive.google.com/drive/u/2/folders/1FdQDaAN-clIueNZEJagn0WYT43Cx2bHN
 
 # Coevaluación
 
-##Coevaluación de Carmen Catalina Delgado Manzano para Monserrat Guadalupe Castañon Sanchez 
+## Coevaluación de Carmen Catalina Delgado Manzano para Monserrat Guadalupe Castañon Sanchez 
 
 Monse es una persona dispuesta a apoyar en las cosas por lo que también siempre ayuda, su cualidad es que es muy detallista entonces las cosas le salen bien  y en lo que creo que deberia de mejorar es que a veces se le olvidan las cosas impoertantes, es decir no ve a futuro que podría haber consecuencia de no presentar atención en cosas que son importanes entregar. 
 
-##Coevaluación de Carmen Catalina Delgado Manzano para Brayan Leonel Hernandez Díaz
+## Coevaluación de Carmen Catalina Delgado Manzano para Brayan Leonel Hernandez Díaz
 
 Leo es un compañero muy adaptable, auqnue no sepa hacer ciertas cosas se esfuerza y lo intenta, entonces siempre esta disponible para avanzar en ciertas cosas. Pero en las cosas que  puede mejorar  es que se distrae mucho y se deberia de estar haciendo ciertas cosas pero se distrae y no avanza tan rapido por lo que yo creo que debería de esforzarse en mejorar más estar presente  y de una mejor calidad el trabajo. 
 
 
-##Coevaluación de Monserrat Guadalupe Castañon Sanchez para Carmen Catalina Delgado Manzano
-##Coevaluación de Monserrat Guadalupe Castañon Sanchez para Brayan Leonel Hernandez Díaz
+## Coevaluación de Monserrat Guadalupe Castañon Sanchez para Carmen Catalina Delgado Manzano
+## Coevaluación de Monserrat Guadalupe Castañon Sanchez para Brayan Leonel Hernandez Díaz
 
 
 
